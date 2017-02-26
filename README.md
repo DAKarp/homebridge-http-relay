@@ -1,1 +1,1 @@
-# homebridge-http-relay
+# homebridge-http-relay-lock
