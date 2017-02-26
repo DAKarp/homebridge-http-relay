@@ -44,6 +44,8 @@ function RelayLockAccessory(log, config) {
 }
 
 RelayLockAccessory.prototype.getState = function(callback) {
+  callback(null, true);
+  /*
   this.log("Getting current state...");
 
   request.post({
@@ -62,9 +64,12 @@ RelayLockAccessory.prototype.getState = function(callback) {
       callback(err);
     }
   }.bind(this));
+  */
 }
 
 RelayLockAccessory.prototype.getBattery = function(callback) {
+  callback(null, "100");
+  /*
   this.log("Getting current battery...");
   
   request.post({
@@ -82,6 +87,7 @@ RelayLockAccessory.prototype.getBattery = function(callback) {
       callback(err);
     }
   }.bind(this));
+  */
 }
 
 RelayLockAccessory.prototype.getCharging = function(callback) {
@@ -89,6 +95,8 @@ RelayLockAccessory.prototype.getCharging = function(callback) {
 }
 
 RelayLockAccessory.prototype.getLowBatt = function(callback) {
+  callback(null, Characteristic.StatusLowBattery.BATTERY_LEVEL_NORMAL);
+  /*
   this.log("Getting current battery...");
   
   request.post({
@@ -107,6 +115,7 @@ RelayLockAccessory.prototype.getLowBatt = function(callback) {
       callback(err);
     }
   }.bind(this));
+  */
 }
 
 RelayLockAccessory.prototype.setState = function(state, callback) {
@@ -115,7 +124,8 @@ RelayLockAccessory.prototype.setState = function(state, callback) {
   this.log("Set state to %s", lockState);
 
   request.post({
-    url: this.url
+    url: this.url,
+    timeout: 1500
   }, function(err, response, body) {
 
     if (!err && response.statusCode == 200) {
