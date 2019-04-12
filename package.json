@@ -5,8 +5,8 @@
   "author": {
     "name": "DAKarp"
   },
-    "keywords": [
-	"homebridge-plugin"
+  "keywords": [
+    "homebridge-plugin"
   ],
   "repository": {
     "type": "git",
